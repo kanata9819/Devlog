@@ -148,7 +148,7 @@ export default function Home() {
                             </h2>
                             <div className="mt-6 space-y-2 text-sm">
                                 <a
-                                    href="mailto:taka9819@gmail.com"
+                                    href="mailto:kanataasobu@gmail.com"
                                     className="block rounded-2xl bg-white/10 px-4 py-3 font-semibold hover:bg-white/20"
                                 >
                                     hello@example.com
