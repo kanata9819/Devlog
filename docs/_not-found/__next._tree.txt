@@ -1,0 +1,2 @@
+:HL["/Devlog/_next/static/chunks/e59c84e19c2d5e7d.css","style"]
+0:{"buildId":"VdqOil1wcpcA4mKBAA-GX","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"/_not-found","paramType":null,"paramKey":"/_not-found","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
