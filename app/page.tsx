@@ -151,7 +151,7 @@ export default function Home() {
                                     href="mailto:kanataasobu@gmail.com"
                                     className="block rounded-2xl bg-white/10 px-4 py-3 font-semibold hover:bg-white/20"
                                 >
-                                    hello@example.com
+                                    kanataasobu@gmail.com
                                 </a>
                             </div>
                         </section>
