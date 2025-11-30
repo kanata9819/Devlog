@@ -1,11 +1,11 @@
-// next.config.js
 /** @type {import("next").NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
     output: "export",
 
-    // GitHub Pages 用のパス調整（プロジェクトページの場合必要）
-    basePath: "/Devlog",
-    assetPrefix: "/Devlog/",
+    basePath: isProd ? "/Devlog" : "",
+    assetPrefix: isProd ? "/Devlog/" : "",
 
     images: {
         unoptimized: true,
