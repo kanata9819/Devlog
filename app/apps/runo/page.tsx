@@ -42,6 +42,56 @@ const metrics: { label: string; value: string; sub: string }[] = [
     { label: "Render Stack", value: "wgpu + vello", sub: "GPU レンダリング基盤" },
 ];
 
+const exampleFlowCode = `fn build(&mut self, ui: &mut Ui<'_>) {
+    ui.vertical(|ui| {
+        Self::build_title(ui);
+        ui.widgets()
+            .div()
+            .id(MAIN_PANEL_ID)
+            .show(|ui| {
+                Self::build_name_input(ui);
+                Self::build_role_combo(ui);
+                Self::build_toggle_button(ui);
+            });
+    });
+}
+
+fn update(&mut self, ui: &mut Ui<'_>) {
+    for event in ui.events().drain_events() {
+        match event {
+            UiEvent::ButtonClicked { id } if id == TOGGLE_BUTTON_ID => {
+                self.toggled = !self.toggled;
+                ui.state().button().set_text(
+                    TOGGLE_BUTTON_ID,
+                    if self.toggled { "Toggle: ON" } else { "Toggle: OFF" },
+                );
+            }
+            UiEvent::TextBoxChanged { id, text } if id == INPUT_NAME_ID => {
+                self.input_text = text;
+            }
+            _ => {}
+        }
+    }
+}`;
+
+const exampleFlowNotes: { title: string; detail: string }[] = [
+    {
+        title: "build() は UI の初期構築専用",
+        detail:
+            "example では vertical コンテナの中に title と panel(div) を配置し、panel 内で text_box / combo_box / button を宣言しています。",
+    },
+    {
+        title: "update() はイベントドリブンで状態更新",
+        detail:
+            "ui.events().drain_events() でキューを消費し、ButtonClicked や TextBoxChanged ごとにアプリ状態を更新する流れです。",
+    },
+    {
+        title: "見た目の変更は ui.state() 経由",
+        detail:
+            "ボタンラベル変更のような描画反映は ui.state().button().set_text(...) で行い、Widget 宣言と更新ロジックを分離しています。",
+    },
+];
+
 export default function RunoPage() {
     return (
         <div className="min-h-screen bg-[#050505] pb-20 pt-14 text-zinc-100">
@@ -149,6 +199,33 @@ export default function RunoPage() {
                                     </li>
                                 ))}
                             </ol>
+                        </section>
+
+                        <section className="rounded-3xl border border-white/10 bg-zinc-900/80 p-8 shadow-2xl shadow-black/60 backdrop-blur">
+                            <div className="flex flex-col gap-2">
+                                <p className="text-sm font-semibold uppercase tracking-[0.4em] text-zinc-500">
+                                    Example Flow
+                                </p>
+                                <h2 className="text-2xl font-semibold text-white">
+                                    example コードで見る処理の流れ
+                                </h2>
+                            </div>
+                            <pre className="mt-6 overflow-x-auto rounded-2xl border border-white/10 bg-black/40 p-5 text-xs leading-relaxed text-zinc-200">
+                                <code>{exampleFlowCode}</code>
+                            </pre>
+                            <ul className="mt-6 space-y-4">
+                                {exampleFlowNotes.map((note) => (
+                                    <li
+                                        key={note.title}
+                                        className="rounded-2xl border border-white/10 bg-zinc-800/60 p-4"
+                                    >
+                                        <p className="text-sm font-semibold text-white">{note.title}</p>
+                                        <p className="mt-2 text-sm leading-relaxed text-zinc-300">
+                                            {note.detail}
+                                        </p>
+                                    </li>
+                                ))}
+                            </ul>
                         </section>
                     </section>
 
