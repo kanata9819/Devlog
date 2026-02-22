@@ -94,29 +94,29 @@ const exampleFlowNotes: { title: string; detail: string }[] = [
 
 export default function RunoPage() {
     return (
-        <div className="min-h-screen bg-[#050505] pb-20 pt-14 text-zinc-100">
-            <div className="mx-auto flex w-full max-w-5xl flex-col gap-10 px-6">
+        <div className="min-h-screen overflow-x-hidden bg-[#050505] pb-12 pt-8 text-zinc-100 sm:pb-20 sm:pt-14">
+            <div className="mx-auto flex w-full max-w-5xl flex-col gap-7 px-4 sm:gap-10 sm:px-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.4em] text-zinc-500">
                     最終更新: 2026/02/22
                 </p>
 
-                <header className="rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_top,#1b1b1f,#050505)] p-10 shadow-2xl shadow-black/60">
+                <header className="rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_top,#1b1b1f,#050505)] p-6 shadow-2xl shadow-black/60 sm:p-10">
                     <p className="text-xs font-semibold uppercase tracking-[0.4em] text-zinc-500">
                         Runo – Experimental Rust GUI Framework
                     </p>
-                    <h1 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">
+                    <h1 className="mt-4 text-3xl font-semibold leading-tight text-white sm:text-5xl">
                         Rust ネイティブの GUI を、
                         <br />
                         ゼロから設計する挑戦
                     </h1>
-                    <p className="mt-6 max-w-4xl text-lg leading-relaxed text-zinc-300">
+                    <p className="mt-5 max-w-4xl text-base leading-relaxed text-zinc-300 sm:mt-6 sm:text-lg">
                         Runo は、winit + wgpu + vello をベースにした実験的な GUI フレームワークです。<br />
                         宣言的な Widget API と、イベント駆動の State 更新 API を組み合わせて、
                         「小さく作って検証しながら拡張できる GUI 基盤」を目指しています。
                     </p>
-                    <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
+                    <div className="mt-7 grid grid-cols-1 gap-3 text-sm font-semibold sm:mt-8 sm:flex sm:flex-wrap sm:gap-4">
                         <a
-                            className="rounded-full bg-white px-6 py-3 text-zinc-900 transition hover:bg-zinc-600"
+                            className="rounded-full bg-white px-6 py-3 text-center text-zinc-900 transition hover:bg-zinc-600"
                             href="https://github.com/kanata9819/runo"
                             target="_blank"
                             rel="noreferrer"
@@ -124,7 +124,7 @@ export default function RunoPage() {
                             GitHubリポジトリを見る
                         </a>
                         <a
-                            className="rounded-full bg-white px-6 py-3 text-zinc-900 transition hover:bg-zinc-600"
+                            className="rounded-full bg-white px-6 py-3 text-center text-zinc-900 transition hover:bg-zinc-600"
                             href="https://github.com/kanata9819/runo/blob/master/README.md"
                             target="_blank"
                             rel="noreferrer"
@@ -133,22 +133,22 @@ export default function RunoPage() {
                         </a>
                         <Link
                             href="/"
-                            className="rounded-full border border-white/30 px-6 py-3 text-white transition hover:border-white hover:bg-white/10"
+                            className="rounded-full border border-white/30 px-6 py-3 text-center text-white transition hover:border-white hover:bg-white/10"
                         >
                             ブログトップへ戻る
                         </Link>
                     </div>
                 </header>
 
-                <main className="grid gap-8 lg:grid-cols-[3fr,2fr]">
-                    <section className="space-y-8">
-                        <div className="rounded-3xl border border-white/10 bg-zinc-900/80 p-8 shadow-2xl shadow-black/60 backdrop-blur">
+                <main className="grid gap-6 sm:gap-8 lg:grid-cols-[3fr,2fr]">
+                    <section className="min-w-0 space-y-6 sm:space-y-8">
+                        <div className="min-w-0 rounded-3xl border border-white/10 bg-zinc-900/80 p-6 shadow-2xl shadow-black/60 backdrop-blur sm:p-8">
                             <h2 className="text-2xl font-semibold text-white">なぜ作ったか</h2>
-                            <p className="mt-4 text-base leading-relaxed text-zinc-300">
+                            <p className="mt-4 wrap-break-word text-base leading-relaxed text-zinc-300">
                                 既存 GUI フレームワークを使うだけでなく、描画・入力・状態管理の責務分離を
                                 自分の手で理解したいという目的で、学習兼プロトタイピングとして始めました。
                             </p>
-                            <p className="mt-3 text-base leading-relaxed text-zinc-300">
+                            <p className="mt-3 wrap-break-word text-base leading-relaxed text-zinc-300">
                                 特に重視しているのは、
                                 <span className="font-semibold">
                                     「build() で UI を宣言し、update() でイベントに反応する」流れをシンプルに保つこと
@@ -157,7 +157,7 @@ export default function RunoPage() {
                             </p>
                         </div>
 
-                        <section className="rounded-3xl border border-white/10 bg-zinc-900/80 p-8 shadow-2xl shadow-black/60 backdrop-blur">
+                        <section className="rounded-3xl border border-white/10 bg-zinc-900/80 p-6 shadow-2xl shadow-black/60 backdrop-blur sm:p-8">
                             <h2 className="text-2xl font-semibold text-white">ハイライト</h2>
                             <ul className="mt-6 space-y-5">
                                 {highlights.map((item) => (
@@ -177,7 +177,7 @@ export default function RunoPage() {
                             </ul>
                         </section>
 
-                        <section className="rounded-3xl border border-white/10 bg-zinc-900/80 p-8 shadow-2xl shadow-black/60 backdrop-blur">
+                        <section className="rounded-3xl border border-white/10 bg-zinc-900/80 p-6 shadow-2xl shadow-black/60 backdrop-blur sm:p-8">
                             <div className="flex flex-col gap-2">
                                 <p className="text-sm font-semibold uppercase tracking-[0.4em] text-zinc-500">
                                     Workflow
@@ -201,7 +201,7 @@ export default function RunoPage() {
                             </ol>
                         </section>
 
-                        <section className="rounded-3xl border border-white/10 bg-zinc-900/80 p-8 shadow-2xl shadow-black/60 backdrop-blur">
+                        <section className="rounded-3xl border border-white/10 bg-zinc-900/80 p-6 shadow-2xl shadow-black/60 backdrop-blur sm:p-8">
                             <div className="flex flex-col gap-2">
                                 <p className="text-sm font-semibold uppercase tracking-[0.4em] text-zinc-500">
                                     Example Flow
@@ -210,7 +210,7 @@ export default function RunoPage() {
                                     example コードで見る処理の流れ
                                 </h2>
                             </div>
-                            <pre className="mt-6 overflow-x-auto rounded-2xl border border-white/10 bg-black/40 p-5 text-xs leading-relaxed text-zinc-200">
+                            <pre className="mt-6 overflow-x-auto rounded-2xl border border-white/10 bg-black/40 p-4 text-[11px] leading-relaxed text-zinc-200 sm:p-5 sm:text-xs">
                                 <code>{exampleFlowCode}</code>
                             </pre>
                             <ul className="mt-6 space-y-4">
@@ -229,8 +229,8 @@ export default function RunoPage() {
                         </section>
                     </section>
 
-                    <aside className="space-y-8">
-                        <section className="rounded-3xl border border-white/10 bg-linear-to-br from-cyan-500 to-blue-600 p-8 text-white shadow-2xl shadow-black/60">
+                    <aside className="min-w-0 space-y-6 sm:space-y-8">
+                        <section className="rounded-3xl border border-white/10 bg-linear-to-br from-cyan-500 to-blue-600 p-6 text-white shadow-2xl shadow-black/60 sm:p-8">
                             <h2 className="text-2xl font-semibold">現在の到達点</h2>
                             <dl className="mt-6 space-y-4">
                                 {metrics.map((metric) => (
@@ -248,7 +248,7 @@ export default function RunoPage() {
                             </dl>
                         </section>
 
-                        <section className="rounded-3xl border border-white/10 bg-zinc-900/80 p-8 shadow-2xl shadow-black/60 backdrop-blur">
+                        <section className="rounded-3xl border border-white/10 bg-zinc-900/80 p-6 shadow-2xl shadow-black/60 backdrop-blur sm:p-8">
                             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-zinc-500">
                                 Stack
                             </p>
