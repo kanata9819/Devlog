@@ -1,30 +1,12 @@
 import Link from "next/link";
-
-const posts: { title: string; date: string; summary: string; badges: string[]; readingTime: string; link: string }[] = [
-    {
-        title: "【Tauri】OCR+翻訳オーバーレイアプリを公開しました",
-        date: "2025/11/30",
-        summary:
-            "日本語対応していないゲームなどをプレイする際に、画面上で即座に英→日翻訳できるユーティリティを開発しました。",
-        badges: ["PaddleOCR", "LibreTranslate", "Tauri", "Rust", "Python"],
-        readingTime: "5 min read",
-        link: "/apps/overlay-translator",
-    },
-];
-
-const roadmap = [
-    {
-        title: "整備中",
-        status: "In progress",
-        detail: "基盤を製作しました",
-    },
-];
+import { posts } from "./data/posts";
+import { roadmap } from "./data/roadmap";
 
 export default function Home() {
     return (
         <div className="min-h-screen bg-linear-to-b from-zinc-950 via-zinc-900 to-black pb-24 pt-10 text-zinc-100">
             <div className="mx-auto flex w-full max-w-5xl flex-col gap-10 px-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-zinc-500">最終更新: 2025/11/30</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-zinc-500">最終更新: 2026/02/22</p>
                 <header className="rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_top,#1e1e1e,#09090b)] p-10 shadow-2xl shadow-black/50">
                     <p className="text-xs font-semibold uppercase tracking-[0.4em] text-zinc-400">
                         Devlog
@@ -39,7 +21,7 @@ export default function Home() {
 
                     <div className="mt-10 flex flex-wrap gap-4 text-sm font-semibold">
                         <Link
-                            href="/apps/overlay-translator"
+                            href="/apps/runo"
                             className="rounded-full bg-white px-6 py-3 text-zinc-900 transition hover:bg-zinc-100"
                         >
                             最新の開発中プロジェクトを見る
@@ -80,7 +62,7 @@ export default function Home() {
                                     <Link href={post.link} key={post.title}>
                                         <article
                                             key={post.title}
-                                            className="rounded-2xl border border-white/10 bg-zinc-800/70 p-6 shadow-inner shadow-black/50"
+                                            className="rounded-2xl border border-white/10 bg-zinc-800/70 p-6 shadow-inner shadow-black/50 mb-4"
                                         >
                                             <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wide text-zinc-400">
                                                 <span>{post.date}</span>
